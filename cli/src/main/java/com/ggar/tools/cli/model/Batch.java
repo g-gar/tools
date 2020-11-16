@@ -1,6 +1,8 @@
-package com.ggar.tools.cli;
+package com.ggar.tools.cli.model;
 
 import java.util.List;
+
+import com.ggar.tools.cli.Cli;
 
 public abstract class Batch {
 

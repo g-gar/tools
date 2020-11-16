@@ -1,4 +1,4 @@
-package com.ggar.tools.cli;
+package com.ggar.tools.cli.model;
 
 import java.util.List;
 

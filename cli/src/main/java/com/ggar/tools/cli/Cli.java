@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import com.ggar.tools.cli.exception.ProcessNotFoundException;
+import com.ggar.tools.cli.model.Command;
 import com.ggar.tools.cli.task.GetProcessErrorStreamTask;
 import com.ggar.tools.cli.task.GetProcessIdTask;
 import com.ggar.tools.cli.task.GetProcessOutputStreamTask;

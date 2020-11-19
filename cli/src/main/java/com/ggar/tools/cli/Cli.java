@@ -1,17 +1,15 @@
 package com.ggar.tools.cli;
 
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import com.ggar.tools.cli.exception.ProcessNotFoundException;
 import com.ggar.tools.cli.model.Command;
-import com.ggar.tools.cli.task.GetProcessErrorStreamTask;
-import com.ggar.tools.cli.task.GetProcessIdTask;
-import com.ggar.tools.cli.task.GetProcessOutputStreamTask;
-import com.ggar.tools.cli.task.GetProcessStateTask;
-import com.ggar.tools.cli.task.InvokeProcessTask;
+import com.ggar.tools.cli.model.ProcessInfo;
+import com.ggar.tools.cli.model.exception.ProcessNotFoundException;
+import com.ggar.tools.cli.model.task.GetProcessIdTask;
+import com.ggar.tools.cli.model.task.GetProcessStateTask;
+import com.ggar.tools.cli.model.task.InvokeProcessTask;
 
 public class Cli {
 
@@ -22,14 +20,16 @@ public class Cli {
 		this.builder = builder;
 	}
 
-	public Long start(Command command) {
+	public ProcessInfo start(Command command) {
+		ProcessInfo processInfo = null;
 		Long pid = null;
 		Process process = new InvokeProcessTask(builder, command.get()).execute();
 		if (process != null) {
 			pid = new GetProcessIdTask(process).execute();
+			processInfo = new ProcessInfo(pid, command.get(), process.getInputStream(), process.getErrorStream(), process.getOutputStream());
 			processes.put(pid, process);
 		}
-		return pid;
+		return processInfo;
 	}
 
 	public boolean isProcessRunning(Long pid) throws ProcessNotFoundException {
@@ -38,14 +38,6 @@ public class Cli {
 	
 	public Integer getProcessExitValue(Long pid) throws ProcessNotFoundException {
 		return findAndExecute(pid, p -> new GetProcessStateTask(p).execute());
-	}
-	
-	public InputStream getProcessOutputStream(Long pid) throws ProcessNotFoundException {
-		return findAndExecute(pid, p -> new GetProcessOutputStreamTask(p).execute());
-	}
-	
-	public InputStream getProcessErrorStream(Long pid) throws ProcessNotFoundException {
-		return findAndExecute(pid, p -> new GetProcessErrorStreamTask(p).execute());
 	}
 
 	private <R> R findAndExecute(Long pid, Function<Process, R> fn) throws ProcessNotFoundException {

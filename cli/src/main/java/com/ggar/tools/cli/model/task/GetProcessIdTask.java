@@ -1,4 +1,4 @@
-package com.ggar.tools.cli.task;
+package com.ggar.tools.cli.model.task;
 
 import java.lang.reflect.Field;
 

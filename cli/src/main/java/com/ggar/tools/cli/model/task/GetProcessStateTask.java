@@ -1,4 +1,4 @@
-package com.ggar.tools.cli.task;
+package com.ggar.tools.cli.model.task;
 
 public class GetProcessStateTask extends Task<Integer, Void> {
 

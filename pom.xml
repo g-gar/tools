@@ -8,5 +8,7 @@
   <modules>
     <module>cli</module>
     <module>server</module>
+    <module>ArgsParser</module>
+    <module>arithmetic</module>
   </modules>
 </project>

@@ -6,13 +6,13 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 
 public class ArgsParser {
 
     private static ArgsParser instance;
     private CommandLine commandLine;
-    private LinkedHashMap<String, Condition> conditions = new LinkedHashMap<>();
+    private HashMap<String, Condition> conditions = new HashMap<>();
 
     public static ArgsParser getInstance() {
         if (instance == null) {

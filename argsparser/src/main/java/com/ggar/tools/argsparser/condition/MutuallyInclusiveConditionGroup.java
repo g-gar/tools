@@ -2,7 +2,7 @@ package com.ggar.tools.argsparser.condition;
 
 import org.apache.commons.cli.CommandLine;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 
 public abstract class MutuallyInclusiveConditionGroup extends ConditionGroup {
 
@@ -10,7 +10,7 @@ public abstract class MutuallyInclusiveConditionGroup extends ConditionGroup {
         super(option);
     }
 
-    public MutuallyInclusiveConditionGroup(String option, LinkedHashMap<String, Condition> conditions) {
+    public MutuallyInclusiveConditionGroup(String option, HashMap<String, Condition> conditions) {
         super(option, conditions);
     }
 

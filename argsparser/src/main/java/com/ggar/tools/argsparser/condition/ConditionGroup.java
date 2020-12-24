@@ -4,14 +4,14 @@ import java.util.LinkedHashMap;
 
 public abstract class ConditionGroup implements Condition {
 
-    protected final Character option;
-    protected final LinkedHashMap<Character, Condition> conditions;
+    protected final String option;
+    protected final LinkedHashMap<String, Condition> conditions;
 
-    public ConditionGroup(Character option) {
-        this(option, new LinkedHashMap<Character, Condition>());
+    public ConditionGroup(String option) {
+        this(option, new LinkedHashMap<String, Condition>());
     }
 
-    public ConditionGroup(Character option, LinkedHashMap<Character, Condition> conditions) {
+    public ConditionGroup(String option, LinkedHashMap<String, Condition> conditions) {
         this.option = option;
         this.conditions = conditions;
     }
@@ -24,7 +24,7 @@ public abstract class ConditionGroup implements Condition {
     }
 
     @Override
-    public Character getIdentifier() {
+    public String getIdentifier() {
         return option;
     }
 

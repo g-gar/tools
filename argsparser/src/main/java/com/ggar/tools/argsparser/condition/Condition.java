@@ -4,7 +4,7 @@ import org.apache.commons.cli.CommandLine;
 
 public interface Condition {
 
-    public Character getIdentifier();
+    public String getIdentifier();
     public abstract boolean check(CommandLine commandLine);
     public abstract <T> T get(CommandLine commandLine);
 

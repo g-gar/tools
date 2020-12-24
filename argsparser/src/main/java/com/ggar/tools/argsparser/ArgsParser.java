@@ -12,7 +12,7 @@ public class ArgsParser {
 
     private static ArgsParser instance;
     private CommandLine commandLine;
-    private LinkedHashMap<Character, Condition> conditions = new LinkedHashMap<>();
+    private LinkedHashMap<String, Condition> conditions = new LinkedHashMap<>();
 
     public static ArgsParser getInstance() {
         if (instance == null) {
@@ -35,7 +35,7 @@ public class ArgsParser {
         return this;
     }
 
-    public <T> T get(Character character) {
-        return this.conditions.getOrDefault(character, null).get(this.commandLine);
+    public <T> T get(String string) {
+        return this.conditions.getOrDefault(string, null).get(this.commandLine);
     }
 }

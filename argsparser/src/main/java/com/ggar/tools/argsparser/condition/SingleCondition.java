@@ -4,14 +4,14 @@ import org.apache.commons.cli.CommandLine;
 
 public abstract class SingleCondition implements Condition {
 
-    protected final Character option;
+    protected final String option;
 
-    public SingleCondition(Character option) {
+    public SingleCondition(String option) {
         this.option = option;
     }
 
     @Override
-    public Character getIdentifier() {
+    public String getIdentifier() {
         return option;
     }
 

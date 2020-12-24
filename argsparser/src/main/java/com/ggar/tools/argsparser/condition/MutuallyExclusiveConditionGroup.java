@@ -6,11 +6,11 @@ import java.util.LinkedHashMap;
 
 public abstract class MutuallyExclusiveConditionGroup extends ConditionGroup {
 
-    public MutuallyExclusiveConditionGroup(Character option) {
+    public MutuallyExclusiveConditionGroup(String option) {
         super(option);
     }
 
-    public MutuallyExclusiveConditionGroup(Character option, LinkedHashMap<Character, Condition> conditions) {
+    public MutuallyExclusiveConditionGroup(String option, LinkedHashMap<String, Condition> conditions) {
         super(option, conditions);
     }
 

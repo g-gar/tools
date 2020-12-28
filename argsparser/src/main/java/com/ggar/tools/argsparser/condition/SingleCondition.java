@@ -20,4 +20,8 @@ public abstract class SingleCondition implements Condition {
         return commandLine.hasOption(option);
     }
 
+    @Override
+    public <T> T get(CommandLine commandLine) {
+        return (T) commandLine.getOptionValue(option);
+    }
 }
